@@ -148,7 +148,7 @@ p {
     bottom: 0;
     right: 0;
     left: 0;
-    transform: translateY(30%);
+    transform: translateY(40%);
     display: flex;
     justify-content: center;
     align-items: center;
