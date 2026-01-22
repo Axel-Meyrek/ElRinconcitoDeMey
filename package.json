@@ -1,0 +1,17 @@
+{
+  "name": "elrinconcitodemey",
+  "version": "1.0.0",
+  "description": "Aplicación web para automatización de ordenes",
+  "keywords": [
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "license": "ISC",
+  "author": "Axel Meyrek",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
