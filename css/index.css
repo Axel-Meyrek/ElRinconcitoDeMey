@@ -113,7 +113,7 @@ p {
 }
 
 .nav_img--logo {
-    scale: 1.4;
+    width: 40px;
 }
 
 
@@ -157,5 +157,5 @@ p {
 }
 
 .ensalada_fixed {
-    width: 120%;
+    width: 100%;
 }
