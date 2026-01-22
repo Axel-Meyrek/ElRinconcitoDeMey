@@ -5,8 +5,8 @@
     --colorBlack: #000000;
     --colorBackground: #fff9f9;
     --colorEnfasis: #bfe656;
+    --colorGrayLight: #d5d6d6;
     --colorTextPrimary: #333333;
-    --colorTextSecondary: #63792a;
 
     /* TIPOGRAFÍA */
     --fontPrimary: "Quicksand", sans-serif;
@@ -231,6 +231,7 @@ p, h1, h2, h3, h4, h5, h6 {
 .producto_nombre {
     color: var(--colorTextSecondary);
     font-weight: var(--fontWeightSemiBold);
+    text-align: center;
 }
 
 .cantidadProducto_botonera {
@@ -254,3 +255,31 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 
+/* Personalizar Pedido */
+.personalizarPedido_img {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.personalizarPedido_label {
+    margin-top: 1.5em;
+}
+
+.personalizarPedido_containerTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+}
+
+.tagsClikeables {
+    padding: .5em;
+    background-color: var(--colorGrayLight);
+    border-radius: 20px;
+    font-size: var(--fontSizeSmall);
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.20);
+}
+
+.tagsClikeableActive {
+    background-color: var(--colorEnfasis);
+}
