@@ -13,10 +13,10 @@
     --fontSecondary: 'Georgia', serif;
 
     /* TAMAÑOS */
-    --fontSizeSmall: 12px;
-    --fontSizeMedium: 16px;
-    --fontSizeLarge: 24px;
-    --fontSizeXLarge: 32px;
+  --fontSizeSmall:  clamp(10px, 2.5vw, 12px);
+  --fontSizeMedium: clamp(14px, 3vw, 16px);
+  --fontSizeLarge:  clamp(18px, 4vw, 24px);
+  --fontSizeXLarge: clamp(24px, 5vw, 32px);
 
     /* WEIGHTS */
     --fontWeightLight: 300;
@@ -52,7 +52,7 @@ a {
     color: inherit;
 }
 
-p {
+p, h1, h2, h3, h4, h5, h6 {
     line-height: 180%;
     letter-spacing: 0.5px;
     text-wrap: pretty;
@@ -63,6 +63,10 @@ p {
     font-weight: var(--fontWeightSemiBold);
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 .buttonCallToACtion {
     background-color: var(--colorEnfasis);
     color: var(--colorBlack);
@@ -70,7 +74,7 @@ p {
     border: none;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    width: 90%;
+    width: 100%;
     box-shadow: 15px 15px rgba(0, 0, 0, 0.20);
     line-height: 180%;
     letter-spacing: 0.5px;
@@ -78,18 +82,44 @@ p {
     font-size: var(--fontSizeSmall);
 }
 
+.buttonCallToACtion:active {
+    scale: 1.02;
+}
+
+.clickable:active {
+    scale: 1.02;
+}
+
+.buttonContinue {
+    margin-top: 2.5em;
+}
+
 .section {
-    padding-top: 100px;
-    padding-bottom: 50px;
-    width: 90%;
+    padding: 100px 1em 50px 1em;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 1em;
     overflow: hidden;
     max-width: 800px;
+
 }
 
+.windowFloat {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    background-color: var(--colorBackground);
+    min-height: 100vh;
+    transform: translateX(200%);
+    transition: transform 1s ease;
+}
+
+.showWindowFloat {
+    transform: translateX(0);
+}
 
 
 /* BARRA DE NAVEGACIÓN */
@@ -103,9 +133,9 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 10;
     background-color: var(--colorBackground);
     box-shadow: 0px 15px rgba(0, 0, 0, 0.25);
+    z-index: 100;
 }
 
 .nav_img {
@@ -138,7 +168,7 @@ p {
 
 .main_buttonCallToACtion {
     max-width: 300px;
-    z-index: 20;
+    position: relative;
 }
 
 
@@ -159,3 +189,68 @@ p {
 .ensalada_fixed {
     width: 100%;
 }
+
+
+/* CANTIDAD DEL PRODUCTO */
+.producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.5em;
+    background-color: var(--colorWhite);
+    border: 1px solid var(--colorBlack);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+
+.producto_precio {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    background-color: var(--colorEnfasis);
+    color: var(--colorBlack);
+    padding: 0.5em 1em;
+    border-radius: 100%;
+    font-weight: var(--fontWeightBold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.producto_imagen {
+    width: 50%;
+    max-width: 200px;
+}
+
+.producto_nombre {
+    color: var(--colorTextSecondary);
+    font-weight: var(--fontWeightSemiBold);
+}
+
+.cantidadProducto_botonera {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.cantidadProducto_button, .cantidadProducto_text {
+    width: 100%;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+    background-color: var(--colorWhite);
+    border: 1px solid var(--colorBlack);
+    text-align: center;
+}
+
+.cantidadProducto_text {
+    border: none;
+}
+
+
