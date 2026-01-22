@@ -5,6 +5,7 @@
     --colorBlack: #000000;
     --colorBackground: #fff9f9;
     --colorEnfasis: #bfe656;
+    --colorTextSecondary: #63792a;
     --colorGrayLight: #d5d6d6;
     --colorTextPrimary: #333333;
 
@@ -58,6 +59,13 @@ p, h1, h2, h3, h4, h5, h6 {
     text-wrap: pretty;
 }
 
+span {
+    text-wrap: pretty;
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+}
+
 .resaltado {
     color: var(--colorTextSecondary);
     font-weight: var(--fontWeightSemiBold);
@@ -67,8 +75,7 @@ p, h1, h2, h3, h4, h5, h6 {
     visibility: hidden;
 }
 
-.buttonCallToACtion {
-    all: unset;
+.buttonCallToACtion, .buttonEditar {
     background-color: var(--colorEnfasis);
     color: var(--colorBlack);
     padding: 1em 2em;
@@ -81,6 +88,7 @@ p, h1, h2, h3, h4, h5, h6 {
     letter-spacing: 0.5px;
     margin: 0 auto;
     font-size: var(--fontSizeSmall);
+    text-align: center;
 }
 
 .buttonCallToACtion:active {
@@ -95,6 +103,15 @@ p, h1, h2, h3, h4, h5, h6 {
     margin-top: 2.5em;
 }
 
+.buttonVolver {
+    background-color: var(--colorGrayLight);
+    margin-top: 10px;
+}
+
+.buttonEditar {
+    background-color: var(--colorGrayLight);
+}
+
 .section {
     padding: 100px 1em 50px 1em;
     width: 100%;
@@ -102,9 +119,8 @@ p, h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    overflow: hidden;
-    max-width: 800px;
-
+    overflow-x: hidden;
+    max-width: 500px;
 }
 
 .windowFloat {
@@ -116,6 +132,10 @@ p, h1, h2, h3, h4, h5, h6 {
     min-height: 100vh;
     transform: translateX(200%);
     transition: transform 1s ease;
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;  
 }
 
 .showWindowFloat {
@@ -183,7 +203,7 @@ p, h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
@@ -273,7 +293,7 @@ p, h1, h2, h3, h4, h5, h6 {
     gap: .5em;
 }
 
-.tagsClikeables {
+.tagsClikeables, .tags {
     padding: .5em;
     background-color: var(--colorGrayLight);
     border-radius: 20px;
@@ -281,6 +301,129 @@ p, h1, h2, h3, h4, h5, h6 {
     box-shadow: 4px 4px rgba(0, 0, 0, 0.20);
 }
 
-.tagsClikeableActive {
+.tagsClikeableActive, .tagsActive {
     background-color: var(--colorEnfasis);
+}
+
+/* DATOS DEL USUARIO */
+.datosUsuario_input {
+    padding: .5em;
+    border-radius: 4px;
+    border: none;
+    border: 1px solid var(--colorGrayLight);
+}
+
+.datosUsuario_input:focus {
+    outline: 2px solid var(--colorEnfasis);
+}
+
+.containerFlex {
+    display: flex;
+    gap: 1em;
+}
+
+.datosUsuario_buttonSelectDay {
+    width: 100%;
+    padding: .5em;
+    border-radius: 4px;
+    border: 1px solid var(--colorGrayLight);
+    background-color: transparent;
+}
+
+.datosUsuario_buttonSelectDay--active {
+    background-color: var(--colorEnfasis);
+    border-color: var(--colorEnfasis);
+    scale: 1.03;
+}
+
+.datosUsuario_textarea {
+    field-sizing: content;
+    resize: vertical;
+}
+
+
+/* DETALLES PEDIDO */
+.detallesPedido {
+    gap: 1.5em;
+}
+
+.detallesPerdido_cardProducto {
+    position: relative;
+    border: 1px solid var(--colorBlack);
+    padding: 2em 1.5em;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    background-color: var(--colorWhite);
+}
+
+.detallesPedido_img {
+    width: 30%;
+}
+
+.detallePedido_containerTags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+.detallePedido_frase {
+    text-align: center;
+}
+
+.detallesPedido_infoUsuario {
+    display: flex;
+    gap: 1em;
+    border: 1px solid var(--colorBlack);
+    border-radius: 8px;
+    padding: 2em 1.5em;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--colorWhite);
+}
+
+.infoUsuario_img {
+    width: 30%;
+}
+
+.infoUsuario_wrapped {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.infoUsuario_title {
+    color: var(--colorTextSecondary);
+    font-weight: var(--fontWeightSemiBold);
+}
+
+.detallePedido_totalCompra {
+    font-size: var(--fontSizeLarge);
+    font-weight: var(--fontWeightBold);
+    color: var(--colorTextSecondary);
+    text-align: center;
+}
+
+.detallePedido_lineDecorativo {
+    width: 60%;
+    height: 4px;
+    background-color: var(--colorTextSecondary);
+    margin: 0 auto;
+    
+}
+
+.detallePedido_lineDecorativo:nth-of-type(2) {
+    width: 40%;
+}
+
+.detallesPedido_pieDePagina {
+    font-size: 9px;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+    width: 70%;
 }

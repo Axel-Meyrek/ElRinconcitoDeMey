@@ -21,7 +21,7 @@
     <!-- BARRA DE NAVEGACIÓN -->
     <nav class="nav">
         <img class="nav_img nav_img--logo" src="./img/Logo.svg" alt="">
-        <h2 class="nav_nameapp">El rinconcito de Mey</h2>
+        <h2 class="nav_nameapp">El Rinconcito de Mey</h2>
         <img class="nav_img nav_img--coffee" src="./img/Coffe.svg" alt="">
     </nav>
 
@@ -84,7 +84,84 @@
         </div>
 
         <button class="buttonCallToACtion buttonContinue">Continuar</button>
+    </section>
 
+
+    <!-- DATOS USUARIO -->
+    <section class="section windowFloat datosUsuario">
+        <p class="datosUsuario_label">¿Cuál es tu nombre?</p>
+        <input class="datosUsuario_input" type="text">
+
+        <p class="datosUsuario_label">¿Dónde prefieres que te entregue?</p>
+        <input class="datosUsuario_input" type="text">
+
+        <p class="datosUsuario_label">¿Cuál es tu numero de oficina?</p>
+        <input class="datosUsuario_input" type="text">
+
+        <div class="containerFlex">
+            <button class="datosUsuario_buttonSelectDay datosUsuario_buttonSelectDay--active">
+                Entregar Hoy: <br>
+                <span>16 de enero</span>
+            </button>
+
+            <button class="datosUsuario_buttonSelectDay">
+                Entregar Mañana: <br>
+                <span>17 de enero</span>
+            </button>
+        </div>
+
+        <p class="datosUsuario_label">¿A qué hora le gustaria recibir?</p>
+        <input class="datosUsuario_input" type="text">
+
+        <p class="datosUsuario_label">Agrega algun mensaje adicional (opcional)</p>
+        <textarea class="datosUsuario_input datosUsuario_textarea" type="text"></textarea>
+
+        <button class="buttonCallToACtion buttonContinue">Continuar</button>
+        <button class="buttonCallToACtion buttonVolver">Volver</button>
+    </section>
+
+
+    <!-- DETALLES PEDIDO -->
+    <section class="section windowFloat detallesPedido">
+        <p class="detallesPedido_parraf">Estos son los detalles de tu pedido:</p>
+
+        <!-- PEDIDO -->
+        <article class="detallesPerdido_cardProducto">
+            <img class="detallesPedido_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
+                
+            <p class="producto_nombre">NUESTRA PRIMER ENSALADA</p>
+            <p class="producto_precio">$45</p>
+            <div class="detallePedido_containerTags">
+                <p class="tags tagsActive">Lechuga Romana ✔</p>
+                <p class="tags tagsActive">Queso ✔</p>
+                <p class="tags tagsActive">Lechuga Romana ✔</p>
+                <p class="tags tagsActive">Queso ✔</p>
+                <p class="tags tagsActive">Lechuga Romana ✔</p>
+                <p class="tags tagsActive">Queso ✔</p>
+            </div>
+
+
+            <p class="detallePedido_frase">“Aprobado por estómagos universitarios.”</p>
+            <p class="buttonEditar">Editar</p>
+        </article>
+
+        <!-- USUARIO -->
+        <article class="detallesPedido_infoUsuario">
+            <img class="infoUsuario_img" src="./img/User.svg" alt="">
+
+            <div class="infoUsuario_wrapped">
+                <p class="infoUsuario_title">Entrega</p>
+                <p class="infoUsuario_text">¡Hola Alejandro! Su pedido sera entregado en su oficina, que es la 206 Posgrados, a las 7:00am</p>
+                <button class="buttonEditar">Editar</button>
+            </div>
+        </article>
+
+        <p class="detallePedido_totalCompra">Total: <span>$45</span> nuevos pesos mexicanos</p>
+        <hr class="detallePedido_lineDecorativo">
+        <hr class="detallePedido_lineDecorativo">
+        <button class="buttonCallToACtion">Terminar Pedido</button>
+        <p class="detallesPedido_pieDePagina">Al dar clic, se abrirá WhatsApp con tu pedido ya listo. Solo envía el mensaje y yo te confirmaré la recepción.</p>
+        
     </section>
 
 
