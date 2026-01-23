@@ -26,20 +26,21 @@
     </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="main section">
+    <main class="main section windowFloat showWindowFloat" id="sectionMain">
         <img class="main_logo" src="./img/Logo.svg" alt="">
         <h1 class="main_title">El Rinconcito de Mey</h1>
         <p class="main_description">Arma <span class="resaltado">tu pedido</span>, elige tu hora de entrega y <span class="resaltado">listo</span>. Yo cocino, tú <span class="resaltado">comes feliz</span>.</p>
-        <button class="main_buttonCallToACtion buttonCallToACtion">¡Quiero Comer!</button>
+        <button class="main_buttonCallToAction buttonCallToAction" data-modal="sectionCantidadProducto">¡Quiero Comer!</button>
+        <img class="main_img" src="./img/HeroSalad.svg" alt="">
     </main>
 
     <!-- ENSALADA FIXED -->
-    <div class="container_fixed">
+   <!--  <div class="container_fixed">
         <img class="ensalada_fixed" src="./img/HeroSalad.svg" alt="">
-    </div>
+    </div> -->
 
     <!-- CANTIDAD DEL PRODUCTO -->
-    <section class="section windowFloat cantidadProducto">
+    <section class="section windowFloat cantidadProducto" id="sectionCantidadProducto">
         <!-- PRODUCTO -->
         <article class="producto">
             <p class="producto_precio">$43</p>
@@ -55,12 +56,12 @@
             <button class="cantidadProducto_button clickable">+</button>
         </div>
 
-        <button class="buttonCallToACtion buttonContinue">Continuar</button>
+        <button class="buttonCallToAction buttonContinue" data-modal="sectionPersonalizarPedido">Continuar</button>
     </section>
 
 
     <!-- Personalizar Pedido -->
-    <section class="section windowFloat personalizarPedido">
+    <section class="section windowFloat personalizarPedido" id="sectionPersonalizarPedido">
         <img class="personalizarPedido_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
         <p class="producto_nombre">ENSALADA PRIMER DIA DE CLASES</p>
 
@@ -83,12 +84,12 @@
             <p class="tagsClikeables">Ranch</p>
         </div>
 
-        <button class="buttonCallToACtion buttonContinue">Continuar</button>
+        <button class="buttonCallToAction buttonContinue" data-modal="sectionDatosUsuario">Continuar</button>
     </section>
 
 
     <!-- DATOS USUARIO -->
-    <section class="section windowFloat datosUsuario">
+    <section class="section windowFloat datosUsuario" id="sectionDatosUsuario">
         <p class="datosUsuario_label">¿Cuál es tu nombre?</p>
         <input class="datosUsuario_input" type="text">
 
@@ -114,15 +115,15 @@
         <input class="datosUsuario_input" type="text">
 
         <p class="datosUsuario_label">Agrega algun mensaje adicional (opcional)</p>
-        <textarea class="datosUsuario_input datosUsuario_textarea" type="text"></textarea>
+        <textarea class="datosUsuario_input datosUsuario_textarea"></textarea>
 
-        <button class="buttonCallToACtion buttonContinue">Continuar</button>
-        <button class="buttonCallToACtion buttonVolver">Volver</button>
+        <button class="buttonCallToAction buttonContinue" data-modal="sectionDetallesPedido">Continuar</button>
+        <button class="buttonCallToAction buttonVolver">Volver</button>
     </section>
 
 
     <!-- DETALLES PEDIDO -->
-    <section class="section windowFloat detallesPedido">
+    <section class="section windowFloat detallesPedido" id="sectionDetallesPedido">
         <p class="detallesPedido_parraf">Estos son los detalles de tu pedido:</p>
 
         <!-- PEDIDO -->
@@ -159,24 +160,24 @@
         <p class="detallePedido_totalCompra">Total: <span>$45</span> nuevos pesos mexicanos</p>
         <hr class="detallePedido_lineDecorativo">
         <hr class="detallePedido_lineDecorativo">
-        <button class="buttonCallToACtion">Terminar Pedido</button>
+        <button class="buttonCallToAction" data-modal="sectionMensajeGenerado">Terminar Pedido</button>
         <p class="detallesPedido_pieDePagina">Al dar clic, se abrirá WhatsApp con tu pedido ya listo. Solo envía el mensaje y yo te confirmaré la recepción.</p>
         
     </section>
 
 
     <!-- MENSAJE GENERADO -->
-    <section class="section windowFloat mensajeGenerado">
+    <section class="section windowFloat mensajeGenerado" id="sectionMensajeGenerado">
         <h2 class="mensajeGenerado_title">¡Tu pedido ya fue generado!</h2>
         <p class="mensajeGenerado_description">Se debio abrir tu app de WhatsApp con tu pedido ya listo. Solo envía el mensaje y yo te confirmaré la recepción.</p>
         <img class="mensajeGenerado_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
-        <button class="buttonCallToACtion">Terminar</button>
-        <button class="buttonCallToACtion buttonVolver">Volver a generar mensaje</button>
+        <button class="buttonCallToAction" data-modal="sectionMain">Terminar</button>
+        <button class="buttonCallToAction buttonVolver">Volver a generar mensaje</button>
     </section>
 
 
     <!-- CAFECITO DEL DIA -->
-    <section class="section windowFloat cafecitoDelDia">
+    <section class="section windowFloat cafecitoDelDia" id="sectionCafecitoDelDia">
         <h2 class="cafecitoDelDia_title">Cafecito del día</h2>
         <p class="cafecitoDelDia_description">El cafecito del día es una pequeña frase que cambia todos los días. Usa tus puntos de sabiduría para canjear productos de El Rinconcito de Mey.</p>
         <p class="cafecitoDelDia_puntaje">Actualmente tienes <span class="resaltadoSecundario">12</span> puntos de sabiduria</p>

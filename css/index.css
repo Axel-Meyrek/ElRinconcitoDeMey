@@ -81,7 +81,7 @@ span {
     visibility: hidden;
 }
 
-.buttonCallToACtion, .buttonEditar {
+.buttonCallToAction, .buttonEditar {
     background-color: var(--colorEnfasis);
     color: var(--colorBlack);
     padding: 1em 2em;
@@ -97,7 +97,7 @@ span {
     text-align: center;
 }
 
-.buttonCallToACtion:active {
+.buttonCallToAction:active {
     scale: 1.02;
 }
 
@@ -137,7 +137,7 @@ span {
     background-color: var(--colorBackground);
     min-height: 100vh;
     transform: translateX(200%);
-    transition: transform 1s ease;
+    /* transition: transform .8s ease; */
     height: 100%;
     overflow-y: scroll;
     scrollbar-width: none;
@@ -193,9 +193,14 @@ span {
     margin: 0 auto;
 }
 
-.main_buttonCallToACtion {
+.main_buttonCallToAction {
     max-width: 300px;
     position: relative;
+}
+
+.main_img {
+    width: 80%;
+    margin: 0 auto;
 }
 
 
