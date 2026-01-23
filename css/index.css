@@ -136,8 +136,8 @@ span {
     right: 0;
     background-color: var(--colorBackground);
     min-height: 100vh;
-    transform: translateX(200%);
-    /* transition: transform .8s ease; */
+    transform: translateY(200%);
+    transition: transform .8s ease;
     height: 100%;
     overflow-y: scroll;
     scrollbar-width: none;
@@ -204,25 +204,6 @@ span {
 .main_img {
     width: 100%;
     margin: 0 auto;
-}
-
-
-/* ENSALADA FIXED */
-.container_fixed {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    transform: translateY(40%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.ensalada_fixed {
-    width: 100%;
 }
 
 
@@ -496,4 +477,13 @@ span {
 .cafecitoDelDia_img {
     width: 80%;
     margin: 0 auto;
+}
+
+.cafecitoWrapper {
+    position: relative;
+}
+
+.buttonVolverCafecito {
+    position: absolute;
+    max-width: 180px;
 }

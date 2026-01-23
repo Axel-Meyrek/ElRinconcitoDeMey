@@ -22,7 +22,7 @@
     <nav class="nav">
         <img class="nav_img nav_img--logo" src="./img/Logo.svg" alt="">
         <h2 class="nav_nameapp">El Rinconcito de Mey</h2>
-        <img class="nav_img nav_img--coffee" src="./img/Coffe.svg" alt="">
+        <img class="nav_img nav_img--coffee" src="./img/Coffe.svg" alt="" data-modal="sectionCafecitoDelDia">
     </nav>
 
     <!-- CONTENIDO PRINCIPAL -->
@@ -33,11 +33,6 @@
         <button class="main_buttonCallToAction buttonCallToAction" data-modal="sectionCantidadProducto">¡Quiero Comer!</button>
         <img class="main_img" src="./img/HeroSalad.svg" alt="">
     </main>
-
-    <!-- ENSALADA FIXED -->
-    <!-- <div class="container_fixed">
-        <img class="ensalada_fixed" src="./img/HeroSalad.svg" alt="">
-    </div> -->
 
     <!-- CANTIDAD DEL PRODUCTO -->
     <section class="section windowFloat cantidadProducto" id="sectionCantidadProducto">
@@ -57,6 +52,7 @@
         </div>
 
         <button class="buttonCallToAction buttonContinue" data-modal="sectionPersonalizarPedido">Continuar</button>
+        <button class="buttonCallToAction buttonVolver" data-modal="sectionMain">Volver</button>
     </section>
 
 
@@ -85,6 +81,7 @@
         </div>
 
         <button class="buttonCallToAction buttonContinue" data-modal="sectionDatosUsuario">Continuar</button>
+        <button class="buttonCallToAction buttonVolver" data-modal="sectionCantidadProducto">Volver</button>
     </section>
 
 
@@ -118,7 +115,7 @@
         <textarea class="datosUsuario_input datosUsuario_textarea"></textarea>
 
         <button class="buttonCallToAction buttonContinue" data-modal="sectionDetallesPedido">Continuar</button>
-        <button class="buttonCallToAction buttonVolver">Volver</button>
+        <button class="buttonCallToAction buttonVolver" data-modal="sectionPersonalizarPedido">Volver</button>
     </section>
 
 
@@ -182,6 +179,9 @@
         <p class="cafecitoDelDia_description">El cafecito del día es una pequeña frase que cambia todos los días. Usa tus puntos de sabiduría para canjear productos de El Rinconcito de Mey.</p>
         <p class="cafecitoDelDia_puntaje">Actualmente tienes <span class="resaltadoSecundario">12</span> puntos de sabiduria</p>
         <p class="cafecitoDelDia_cita">“Aceptarme es un acto de amor propio”</p>
+        <div class="cafecitoWrapper">
+            <button class="buttonCallToAction buttonVolver buttonVolverCafecito" data-modal="sectionMain">Volver</button>
+        </div>
         <img class="cafecitoDelDia_img" src="./img/CafeDelDia.svg" alt="">
     </section>
     
