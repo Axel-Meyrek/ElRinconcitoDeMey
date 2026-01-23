@@ -9,15 +9,18 @@ let buttonsVolver = [];
 
 let ultimaPantalla = 'sectionMain';
 
-
-
+let fraseDelDia = '';
 
 
 
 /* FUNCIONES */
-const recuperarBotonesDeNavegacion = () => buttonsNavegacion = document.querySelectorAll('[data-modal]');
+const recuperarBotonesDeNavegacion = () => {
+    buttonsNavegacion = document.querySelectorAll('[data-modal]');
+}
 
-const recuperarSecciones = () => secciones = document.querySelectorAll('.windowFloat');
+const recuperarSecciones = () => {
+    secciones = document.querySelectorAll('.windowFloat');
+}
 
 const agregarEventoABotonesNavegacion = () => {
     buttonsNavegacion.forEach( (button) => {
@@ -35,10 +38,12 @@ const agregarEventoABotonesNavegacion = () => {
     });
 }
 
-
-
-
-
+const mostrarLaUltimaPantalla = () => {
+    secciones.forEach( seccion => {
+        if(seccion.id === ultimaPantalla) seccion.classList.add('showWindowFloat');
+        else seccion.classList.remove('showWindowFloat');
+    });
+}
 
 
 /* EVENTOS */
@@ -52,9 +57,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-$buttonCafecitoDelDiaVolver.addEventListener('click', () => {
-    secciones.forEach( seccion => {
-        if(seccion.id === ultimaPantalla) seccion.classList.add('showWindowFloat');
-        else seccion.classList.remove('showWindowFloat');
-    });
-});
+$buttonCafecitoDelDiaVolver.addEventListener('click', mostrarLaUltimaPantalla);
