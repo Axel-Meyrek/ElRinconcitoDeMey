@@ -199,7 +199,7 @@ span {
 }
 
 .main_img {
-    width: 80%;
+    width: 120%;
     margin: 0 auto;
 }
 
@@ -410,6 +410,10 @@ span {
 .infoUsuario_title {
     color: var(--colorTextSecondary);
     font-weight: var(--fontWeightSemiBold);
+}
+
+.infoUsuario_text {
+    font-size: var(--fontSizeSmall);
 }
 
 .detallePedido_totalCompra {
