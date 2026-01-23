@@ -1,14 +1,13 @@
 /* VARIABLES Y COMPONENTES */
+const $buttonCafecitoDelDiaVolver = document.querySelector('#buttonCafecitoDelDiaVolver');
+
 let buttonsNavegacion = [];
 
 let secciones = [];
 
 let buttonsVolver = [];
 
-let ultimaPantalla;
-
-
-
+let ultimaPantalla = 'sectionMain';
 
 
 
@@ -23,7 +22,11 @@ const recuperarSecciones = () => secciones = document.querySelectorAll('.windowF
 const agregarEventoABotonesNavegacion = () => {
     buttonsNavegacion.forEach( (button) => {
         button.addEventListener('click', (e) => {
+
             const seccionAMostrarID = e.currentTarget.getAttribute('data-modal');
+
+            if(seccionAMostrarID !== 'sectionCafecitoDelDia') ultimaPantalla = seccionAMostrarID;
+
             secciones.forEach( (seccion) => {
                 if(seccion.id === seccionAMostrarID) seccion.classList.add('showWindowFloat');
                 else seccion.classList.remove('showWindowFloat');
@@ -31,9 +34,6 @@ const agregarEventoABotonesNavegacion = () => {
         });
     });
 }
-
-
-
 
 
 
@@ -50,4 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     agregarEventoABotonesNavegacion();
 
+});
+
+$buttonCafecitoDelDiaVolver.addEventListener('click', () => {
+    secciones.forEach( seccion => {
+        if(seccion.id === ultimaPantalla) seccion.classList.add('showWindowFloat');
+        else seccion.classList.remove('showWindowFloat');
+    });
 });
