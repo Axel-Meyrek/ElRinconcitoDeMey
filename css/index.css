@@ -8,6 +8,7 @@
     --colorTextSecondary: #63792a;
     --colorGrayLight: #d5d6d6;
     --colorTextPrimary: #333333;
+    --colorTextSecundary: #603b17;
 
     /* TIPOGRAFÍA */
     --fontPrimary: "Quicksand", sans-serif;
@@ -68,6 +69,11 @@ span {
 
 .resaltado {
     color: var(--colorTextSecondary);
+    font-weight: var(--fontWeightSemiBold);
+}
+
+.resaltadoSecundario {
+    color: brown;
     font-weight: var(--fontWeightSemiBold);
 }
 
@@ -442,6 +448,40 @@ span {
 }
 
 .mensajeGenerado_img {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+/* CAFECITO DEL DÍA */
+
+.cafecitoDelDia_title {
+    font-weight: var(--fontWeightSemiBold);
+    text-align: center;
+    font-size: var(--fontSizeLarge);
+}
+
+.cafecitoDelDia_description {
+    text-align: center;
+    font-size: var(--fontSizeSmall);
+}
+
+.cafecitoDelDia_puntaje {
+    text-align: center;
+    font-weight: var(--fontWeightSemiBold);
+}
+
+.cafecitoDelDia_cita {
+    font-size: var(--fontSizeLarge);
+    font-style: italic;
+    text-align: center;
+    border: 8px solid var(--colorTextSecundary);
+    padding: 2em 1em;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.20);
+    margin-top: 50px;
+}
+
+.cafecitoDelDia_img {
     width: 80%;
     margin: 0 auto;
 }
