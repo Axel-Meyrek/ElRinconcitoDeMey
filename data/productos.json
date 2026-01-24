@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "nombre": "Ensalada César",
+    "precio": 45,
+    "categoria": "ensaladas",
+    "descripcion": "Lechuga, pollo a la plancha, crutones, queso parmesano y aderezo César.",
+    "ingredientes": [
+      "Lechuga",
+      "Pollo a la plancha",
+      "Crutones",
+      "Queso parmesano",
+      "Aderezo César"
+    ],
+    "extras": [
+      "Aderezo César",
+      "Ranch"
+    ],
+    "imagen": "ensalada_cesar.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Hamburguesa Clásica",
+    "precio": 60,
+    "categoria": "hamburguesas",
+    "descripcion": "Carne de res, queso cheddar, lechuga, tomate y cebolla en pan brioche.",
+    "ingredientes": [
+      "Carne de res",
+      "Queso cheddar",
+      "Lechuga",
+      "Tomate",
+      "Cebolla",
+      "Pan brioche"
+    ],
+    "extras": [
+      "Tocino",
+      "Huevo frito"
+    ],
+    "imagen": "hamburguesa_clasica.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Pizza Margarita",
+    "precio": 70,
+    "categoria": "pizzas",
+    "descripcion": "Salsa de tomate, mozzarella fresca, albahaca y aceite de oliva.",
+    "ingredientes": [
+      "Salsa de tomate",
+      "Mozzarella fresca",
+      "Albahaca",
+      "Aceite de oliva"
+    ],
+    "extras": [
+      "Champiñones",
+      "Pepperoni"
+    ],
+    "imagen": "pizza_margarita.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Tacos al Pastor",
+    "precio": 50,
+    "categoria": "tacos",
+    "descripcion": "Tortillas de maíz rellenas de cerdo adobado, piña, cebolla y cilantro.",
+    "ingredientes": [
+      "Tortillas de maíz",
+      "Cerdo adobado",
+      "Piña",
+      "Cebolla",
+      "Cilantro"
+    ],
+    "extras": [
+      "Salsa verde",
+      "Salsa roja"
+    ],
+    "imagen": "tacos_al_pastor.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Sushi Roll California",
+    "precio": 80,
+    "categoria": "sushi",
+    "descripcion": "Arroz, aguacate, pepino y cangrejo envueltos en alga nori.",
+    "ingredientes": [
+      "Arroz",
+      "Aguacate",
+      "Pepino",
+      "Cangrejo",
+      "Alga nori"
+    ],
+    "extras": [
+      "Salsa de soja",
+      "Wasabi"
+    ],
+    "imagen": "sushi_roll_california.jpg"
+  }
+]

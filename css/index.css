@@ -206,6 +206,37 @@ span {
     margin: 0 auto;
 }
 
+/* MENU */
+.menu_title {
+    font-weight: var(--fontWeightSemiBold)
+}
+
+.menu_producto {
+    border: 1px solid var(--colorBlack);
+    background-color: var(--colorWhite);
+    padding: 1em;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    position: relative;
+}
+
+.menu_productoSeleccionado {
+    background-color: var(--colorEnfasis);
+}
+
+.menu_ContainerFlex {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.menu_description {
+    font-size: var(--fontSizeSmall);
+}
+
 
 /* CANTIDAD DEL PRODUCTO */
 .producto {
@@ -237,6 +268,7 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid var(--colorBlack);
 }
 
 .producto_imagen {

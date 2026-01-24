@@ -9,6 +9,18 @@ let buttonsVolver = [];
 
 let ultimaPantalla = 'sectionMain';
 
+let productos = [];
+
+const cliente = {
+    nombre: '',
+    entrega: '',
+    oficina: '',
+    fechaDeEntrega: '',
+    horaDeEntrega: '',
+    totalAPagar: 0,
+    puntosDeSabiduria: 0,
+};
+
 
 
 /* FUNCIONES */
@@ -77,8 +89,21 @@ const obtenerFraseDelDiaDeLocalStorage = () => {
     return JSON.parse(localStorage.getItem('fraseDelDia'));
 }
 
+const recuperarProductos = async () => {
+    const respuesta = await fetch('./data/productos.json');
+    const data = await respuesta.json();
+    productos = data;
+}
+
+const renderizarProductos = async () => {
+    await recuperarProductos();
+
+    console.log('Renderizando productos...');
+    console.log(productos);
+}
+
 /* EVENTOS */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async ()  => {
     
     recuperarBotonesDeNavegacion();
     
@@ -86,8 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     agregarEventoABotonesNavegacion();
 
-    renderizarFraseDelDia();
+    await renderizarProductos();
 
+    renderizarFraseDelDia();
 });
 
 $buttonCafecitoDelDiaVolver.addEventListener('click', mostrarLaUltimaPantalla);
