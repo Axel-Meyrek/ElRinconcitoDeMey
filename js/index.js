@@ -98,8 +98,21 @@ const recuperarProductos = async () => {
 const renderizarProductos = async () => {
     await recuperarProductos();
 
-    console.log('Renderizando productos...');
-    console.log(productos);
+    const $containerMenu = document.querySelector('#containerMenu'); 
+
+    productos.forEach( producto => {
+        const $producto = /* html */
+        `<article class="menu_producto">
+            <h2 class="producto_nombre">${producto.nombre}</h2>
+            <p class="producto_precio">$${producto.precio}</p>
+            <div class="menu_ContainerFlex">
+                <img class="menu_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
+                <p class="menu_description">${producto.descripcion}</p>
+            </div>
+         </article>`;
+
+         $containerMenu.innerHTML += $producto;
+    }); 
 }
 
 /* EVENTOS */

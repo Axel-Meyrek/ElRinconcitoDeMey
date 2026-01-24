@@ -211,6 +211,12 @@ span {
     font-weight: var(--fontWeightSemiBold)
 }
 
+.menu_containerProductos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
 .menu_producto {
     border: 1px solid var(--colorBlack);
     background-color: var(--colorWhite);
