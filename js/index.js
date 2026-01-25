@@ -13,6 +13,8 @@ let productos = [];
 
 let productosSeleccionados = [];
 
+let productoEnElPedido = [];
+
 const cliente = {
     nombre: '',
     entrega: '',
@@ -64,7 +66,6 @@ const consumirAPIFraseDelDia = async () => {
         const data = await response.json();
         return data.text;
     } catch (error) {
-        console.error('Error al obtener la frase del día:', error);
         return 'La frase del dia se fue de sabatico cariño :(';
     }
 }
@@ -159,6 +160,55 @@ const cambiarCantidadProducto = (e, idProducto, operacion) => {
         if(producto.cantidad > 1) producto.cantidad--;
 
     document.querySelector(`#cantidadProducto${idProducto}`).textContent = producto.cantidad;
+}
+
+const crearID = () => {
+    return Date.now();
+}
+
+const crearPedido = () => {
+    productoEnElPedido = [];
+    productosSeleccionados.forEach( producto => {
+        
+        for(let i = 0; i < producto.cantidad; i++) {
+            const productoConID = { ...producto, idPedido: crearID() };
+            productoEnElPedido.push(productoConID);
+        }
+    });
+
+    renderizarPedidosParaEditar();
+}
+
+const renderizarPedidosParaEditar = () => {
+  const $containerPedidosParaEditar = document.querySelector('#containerPedidosParaEditar');
+  $containerPedidosParaEditar.innerHTML = '';
+
+  productoEnElPedido.forEach(producto => {
+    const { nombre, precio, ingredientes, extras } = producto;
+
+    const tagsIngredientes = ingredientes.map(ingrediente =>
+        `<p class="tagsClikeables tagsClikeableActive">${ingrediente} ✔</p>`
+      ).join("");
+
+    const tagsExtras = extras.map(extra =>
+        `<p class="tagsClikeables">${extra} ✔</p>`
+      ).join("");
+
+    const $producto = /* html */ `
+      <article class="detallesPerdido_cardProducto">
+        <img class="detallesPedido_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
+        <p class="producto_nombre">${nombre}</p>
+        <p>Personaliza tu pedido</p>
+        <p class="producto_precio">$${precio}</p>
+        <div class="detallePedido_containerTags">
+          ${tagsIngredientes}
+          ${tagsExtras}
+        </div>
+      </article>
+    `;
+
+    $containerPedidosParaEditar.innerHTML += $producto;
+  });
 }
 
 /* EVENTOS */

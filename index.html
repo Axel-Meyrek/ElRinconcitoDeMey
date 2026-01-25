@@ -42,59 +42,49 @@
             <!-- PRODUCTO -->
         </div>
 
-        <button class="buttonCallToAction buttonContinue" data-modal="sectionCantidadProducto" >Siguiente</button>
+        <button class="buttonCallToAction buttonContinue" onclick="crearPedido()"  data-modal="sectionPersonalizarPedido">Siguiente</button>
         <button class="buttonCallToAction buttonVolver" data-modal="sectionMain">Volver</button>
 
     </section>
 
-    <!-- CANTIDAD DEL PRODUCTO -->
-    <section class="section windowFloat cantidadProducto" id="sectionCantidadProducto">
-        <!-- PRODUCTO -->
-        <article class="producto">
-            <p class="producto_precio">$43</p>
-            <img class="producto_imagen" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
-            <h2 class="producto_nombre">ENSALADA PRIMER DIA DE CLASES</h2>
-            <p class="producto_descripcion">Lechuga fresca, pollo a la plancha, crutones doraditos, queso parmesano y aderezo cremoso hecho en casa. Simple, rica y sin drama. La clásica que nunca falla.</p>
-        </article>
-
-        <!-- AGREGAR O REMOVER PRODUCTO -->
-        <div class="cantidadProducto_botonera">
-            <button class="cantidadProducto_button clickable">-</button>
-            <p class="cantidadProducto_text">12</p>
-            <button class="cantidadProducto_button clickable">+</button>
-        </div>
-
-        <button class="buttonCallToAction buttonContinue" data-modal="sectionPersonalizarPedido">Continuar</button>
-        <button class="buttonCallToAction buttonVolver" data-modal="sectionMenu">Volver</button>
-    </section>
-
-
     <!-- Personalizar Pedido -->
     <section class="section windowFloat personalizarPedido" id="sectionPersonalizarPedido">
-        <img class="personalizarPedido_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
-        <p class="producto_nombre">ENSALADA PRIMER DIA DE CLASES</p>
 
-        <p class="personalizarPedido_label">Personaliza tu pedido numero 1:</p>
-        
-        <div class="personalizarPedido_containerTags">
-            <p class="tagsClikeables tagsClikeableActive">Lechuga Romana</p>
-            <p class="tagsClikeables">Lechuga Romana ✔</p>
-            <p class="tagsClikeables tagsClikeableActive">Lechuga Romana</p>
-            <p class="tagsClikeables">Lechuga Romana ✔</p>
+        <div id="containerPedidosParaEditar" class="containerPedidosParaEditar">
+            <article class="detallesPerdido_cardProducto">
+                <img class="detallesPedido_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
+                <p class="producto_nombre">NUESTRA PRIMER ENSALADA</p>
+                <p>Personaliza tu ensalada numero 1:</p>
+                <p class="producto_precio">$45</p>
+                <div class="detallePedido_containerTags">
+                    <p class="tagsClikeables tagsClikeableActive">Lechuga Romana ✔</p>
+                    <p class="tags tagsActive">Queso ✔</p>
+                    <p class="tags tagsActive">Lechuga Romana ✔</p>
+                    <p class="tags tagsActive">Queso ✔</p>
+                    <p class="tags tagsActive">Lechuga Romana ✔</p>
+                    <p class="tags tagsActive">Queso ✔</p>
+                </div>
+            </article>
+            
+            <article class="detallesPerdido_cardProducto">
+                <img class="detallesPedido_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
+                <p class="producto_nombre">NUESTRA PRIMER ENSALADA</p>
+                <p>Personaliza tu ensalada numero 1:</p>
+                <p class="producto_precio">$45</p>
+                <div class="detallePedido_containerTags">
+                    <p class="tags tagsActive">Lechuga Romana ✔</p>
+                    <p class="tags tagsActive">Queso ✔</p>
+                    <p class="tags tagsActive">Lechuga Romana ✔</p>
+                    <p class="tags tagsActive">Queso ✔</p>
+                    <p class="tags tagsActive">Lechuga Romana ✔</p>
+                    <p class="tags tagsActive">Queso ✔</p>
+                </div>
+            </article>
         </div>
-       
         
-        <p class="personalizarPedido_label">Extras</p>
-
-         <div class="personalizarPedido_containerTags">
-            <p class="tagsClikeables tagsClikeableActive">Queso ✔</p>
-            <p class="tagsClikeables tagsClikeableActive">Queso ✔</p>
-            <p class="tagsClikeables tagsClikeableActive">Queso ✔</p>
-            <p class="tagsClikeables">Ranch</p>
-        </div>
 
         <button class="buttonCallToAction buttonContinue" data-modal="sectionDatosUsuario">Continuar</button>
-        <button class="buttonCallToAction buttonVolver" data-modal="sectionCantidadProducto">Volver</button>
+        <button class="buttonCallToAction buttonVolver" data-modal="sectionMenu">Volver</button>
     </section>
 
 
@@ -123,9 +113,6 @@
 
         <p class="datosUsuario_label">¿A qué hora le gustaria recibir?</p>
         <input class="datosUsuario_input" type="text">
-
-        <p class="datosUsuario_label">Agrega algun mensaje adicional (opcional)</p>
-        <textarea class="datosUsuario_input datosUsuario_textarea"></textarea>
 
         <button class="buttonCallToAction buttonContinue" data-modal="sectionDetallesPedido">Continuar</button>
         <button class="buttonCallToAction buttonVolver" data-modal="sectionPersonalizarPedido">Volver</button>

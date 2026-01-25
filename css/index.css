@@ -269,22 +269,6 @@ span {
     display: flex;
 }
 
-/* CANTIDAD DEL PRODUCTO */
-.producto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5em;
-    width: 100%;
-    margin: 0 auto;
-    padding: 1.5em;
-    background-color: var(--colorWhite);
-    border: 1px solid var(--colorBlack);
-    border-radius: 8px;
-    text-align: center;
-    position: relative;
-}
-
 .producto_precio {
     position: absolute;
     top: -10px;
@@ -313,44 +297,12 @@ span {
     text-align: center;
 }
 
-.cantidadProducto_botonera {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 1em;
-}
-
-.cantidadProducto_button, .cantidadProducto_text {
-    width: 100%;
-    border-radius: 8px;
-    padding: 0.5em 1em;
-    background-color: var(--colorWhite);
-    border: 1px solid var(--colorBlack);
-    text-align: center;
-    cursor: pointer;
-}
-
-.cantidadProducto_text {
-    border: none;
-    cursor: default;
-}
-
 
 /* Personalizar Pedido */
-.personalizarPedido_img {
-    width: 100%;
-    max-width: 200px;
-    margin: 0 auto;
-}
-
-.personalizarPedido_label {
-    margin-top: 1.5em;
-}
-
-.personalizarPedido_containerTags {
+.containerPedidosParaEditar {
     display: flex;
-    flex-wrap: wrap;
-    gap: .5em;
+    flex-direction: column;
+    gap: 2em;
 }
 
 .tagsClikeables, .tags {
