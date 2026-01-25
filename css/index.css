@@ -95,6 +95,7 @@ span {
     margin: 0 auto;
     font-size: var(--fontSizeSmall);
     text-align: center;
+    cursor: pointer;
 }
 
 .buttonCallToAction:active {
@@ -227,6 +228,7 @@ span {
     align-items: center;
     gap: 1em;
     position: relative;
+    cursor: pointer;
 }
 
 .menu_productoSeleccionado {
@@ -243,6 +245,29 @@ span {
     font-size: var(--fontSizeSmall);
 }
 
+.producto_botonera {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    width: 100%;
+    display: none;
+}
+
+.producto_buttonCantidad {
+    width: 100%;
+    background-color: var(--colorWhite);
+    border-radius: 8px;
+    border: 1px solid var(--colorBlack);
+}
+
+.producto_cantidadText {
+    width: 50%;
+    text-align: center;
+}
+
+.menu_productoSeleccionado .producto_botonera {
+    display: flex;
+}
 
 /* CANTIDAD DEL PRODUCTO */
 .producto {
@@ -302,10 +327,12 @@ span {
     background-color: var(--colorWhite);
     border: 1px solid var(--colorBlack);
     text-align: center;
+    cursor: pointer;
 }
 
 .cantidadProducto_text {
     border: none;
+    cursor: default;
 }
 
 
@@ -332,6 +359,7 @@ span {
     border-radius: 20px;
     font-size: var(--fontSizeSmall);
     box-shadow: 4px 4px rgba(0, 0, 0, 0.20);
+    cursor: pointer;
 }
 
 .tagsClikeableActive, .tagsActive {
@@ -361,6 +389,7 @@ span {
     border-radius: 4px;
     border: 1px solid var(--colorGrayLight);
     background-color: transparent;
+    cursor: pointer;
 }
 
 .datosUsuario_buttonSelectDay--active {

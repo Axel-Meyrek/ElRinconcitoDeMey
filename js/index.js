@@ -11,6 +11,8 @@ let ultimaPantalla = 'sectionMain';
 
 let productos = [];
 
+let productosSeleccionados = [];
+
 const cliente = {
     nombre: '',
     entrega: '',
@@ -79,6 +81,7 @@ const renderizarFraseDelDia = async () => {
     const fraseDelDia = await consumirAPIFraseDelDia();
     guardarFraseDelDiaEnLocalStorage(fraseDelDia);
     document.querySelector('#fraseDelDia').textContent = fraseDelDia;
+    incrementarPuntosDeSabiduria();
 }
 
 const guardarFraseDelDiaEnLocalStorage = (frase) => {
@@ -87,6 +90,16 @@ const guardarFraseDelDiaEnLocalStorage = (frase) => {
 
 const obtenerFraseDelDiaDeLocalStorage = () => {
     return JSON.parse(localStorage.getItem('fraseDelDia'));
+}
+
+const renderizarPuntosDeSabiduria = () => {
+    const puntosDeSabiduria = cliente.puntosDeSabiduria;
+    document.querySelector('#puntosDeSabiduria').textContent = puntosDeSabiduria;
+}
+
+const incrementarPuntosDeSabiduria = () => {
+    cliente.puntosDeSabiduria++;
+    renderizarPuntosDeSabiduria();
 }
 
 const recuperarProductos = async () => {
@@ -102,17 +115,50 @@ const renderizarProductos = async () => {
 
     productos.forEach( producto => {
         const $producto = /* html */
-        `<article class="menu_producto">
+        `<article class="menu_producto" onclick="seleccionarProducto(event, ${producto.id})">
             <h2 class="producto_nombre">${producto.nombre}</h2>
             <p class="producto_precio">$${producto.precio}</p>
             <div class="menu_ContainerFlex">
                 <img class="menu_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
                 <p class="menu_description">${producto.descripcion}</p>
             </div>
+            <div class="producto_botonera">
+            <button class="producto_buttonCantidad clickable" onclick="cambiarCantidadProducto(event, ${producto.id}, 'decrementar')">-</button>
+            <p class="producto_cantidadText" id="cantidadProducto${producto.id}">1</p>
+            <button class="producto_buttonCantidad clickable" onclick="cambiarCantidadProducto(event, ${producto.id}, 'incrementar')">+</button>
+            </div>
          </article>`;
 
          $containerMenu.innerHTML += $producto;
     }); 
+}
+
+const seleccionarProducto = (e, idProducto) => {
+    const productoYaSeleccionado = productosSeleccionados.find( producto => producto.id === idProducto );
+
+    if(productoYaSeleccionado) {
+        //Eliminar Producto 
+        productosSeleccionados = productosSeleccionados.filter( producto => producto.id !== idProducto );
+        e.currentTarget.classList.remove('menu_productoSeleccionado');
+        return;
+    }
+
+    const productoSeleccionado = productos.find( producto => producto.id === idProducto );
+    productoSeleccionado.cantidad = 1;
+    document.querySelector(`#cantidadProducto${idProducto}`).textContent = productoSeleccionado.cantidad;
+    e.currentTarget.classList.add('menu_productoSeleccionado');
+
+    productosSeleccionados.push(productoSeleccionado);
+}
+
+const cambiarCantidadProducto = (e, idProducto, operacion) => {
+    e.stopPropagation();
+    const producto = productosSeleccionados.find( producto => producto.id === idProducto );
+    if(operacion === 'incrementar') producto.cantidad++;
+    else 
+        if(producto.cantidad > 1) producto.cantidad--;
+
+    document.querySelector(`#cantidadProducto${idProducto}`).textContent = producto.cantidad;
 }
 
 /* EVENTOS */
@@ -127,6 +173,8 @@ document.addEventListener('DOMContentLoaded', async ()  => {
     await renderizarProductos();
 
     renderizarFraseDelDia();
+
+    renderizarPuntosDeSabiduria();
 });
 
 $buttonCafecitoDelDiaVolver.addEventListener('click', mostrarLaUltimaPantalla);
