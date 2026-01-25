@@ -91,13 +91,13 @@
     <!-- DATOS USUARIO -->
     <section class="section windowFloat datosUsuario" id="sectionDatosUsuario">
         <p class="datosUsuario_label">¿Cuál es tu nombre?</p>
-        <input class="datosUsuario_input" type="text">
+        <input id="nombreCliente" class="datosUsuario_input" type="text">
 
         <p class="datosUsuario_label">¿Dónde prefieres que te entregue?</p>
-        <input class="datosUsuario_input" type="text">
+        <input id="lugarEntregaCliente" class="datosUsuario_input" type="text">
 
         <p class="datosUsuario_label">¿Cuál es tu numero de oficina?</p>
-        <input class="datosUsuario_input" type="text">
+        <input id="numeroOficinaCliente" class="datosUsuario_input" type="text">
 
         <div class="containerFlex">
             <button class="datosUsuario_buttonSelectDay datosUsuario_buttonSelectDay--active">
@@ -112,9 +112,9 @@
         </div>
 
         <p class="datosUsuario_label">¿A qué hora le gustaria recibir?</p>
-        <input class="datosUsuario_input" type="text">
+        <input id="horaEntregaCliente" class="datosUsuario_input" type="text">
 
-        <button class="buttonCallToAction buttonContinue" data-modal="sectionDetallesPedido">Continuar</button>
+        <button class="buttonCallToAction buttonContinue" onclick="recuperarDatosDelUsuario()" data-modal="sectionDetallesPedido">Continuar</button>
         <button class="buttonCallToAction buttonVolver" data-modal="sectionPersonalizarPedido">Volver</button>
     </section>
 

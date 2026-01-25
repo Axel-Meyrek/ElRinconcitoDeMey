@@ -82,6 +82,7 @@ const renderizarFraseDelDia = async () => {
     const fraseDelDia = await consumirAPIFraseDelDia();
     guardarFraseDelDiaEnLocalStorage(fraseDelDia);
     document.querySelector('#fraseDelDia').textContent = fraseDelDia;
+
     incrementarPuntosDeSabiduria();
 }
 
@@ -100,6 +101,17 @@ const renderizarPuntosDeSabiduria = () => {
 
 const incrementarPuntosDeSabiduria = () => {
     cliente.puntosDeSabiduria++;
+    renderizarPuntosDeSabiduria();
+    guardarPuntosDeSabiduriaEnLocalStorage();
+}
+
+const guardarPuntosDeSabiduriaEnLocalStorage = () => {
+    localStorage.setItem('puntosDeSabiduria', cliente.puntosDeSabiduria);
+}
+
+const recuperarPuntosDeSabiduriaDeLocalStorage = () => {
+    const puntos = localStorage.getItem('puntosDeSabiduria');
+    if(puntos) cliente.puntosDeSabiduria = parseInt(puntos);
     renderizarPuntosDeSabiduria();
 }
 
@@ -211,6 +223,13 @@ const renderizarPedidosParaEditar = () => {
   });
 }
 
+const recuperarDatosDelUsuario = () => {
+    cliente.nombre = document.querySelector('#nombreCliente').value;
+    cliente.entrega = document.querySelector('#lugarEntregaCliente').value;
+    cliente.oficina = document.querySelector('#numeroOficinaCliente').value;
+    cliente.horaDeEntrega = document.querySelector('#horaEntregaCliente').value;
+}
+
 /* EVENTOS */
 document.addEventListener('DOMContentLoaded', async ()  => {
     
@@ -224,7 +243,7 @@ document.addEventListener('DOMContentLoaded', async ()  => {
 
     renderizarFraseDelDia();
 
-    renderizarPuntosDeSabiduria();
+    recuperarPuntosDeSabiduriaDeLocalStorage();
 });
 
 $buttonCafecitoDelDiaVolver.addEventListener('click', mostrarLaUltimaPantalla);
