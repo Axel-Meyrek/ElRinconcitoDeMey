@@ -340,9 +340,7 @@ const generarMensajeWhatsApp = () => {
   );
 
   return mensajeCodificado;
-};
-
-
+}
 
 const enviarPedidoPorWhatsApp = () => {
     const numeroTelefono = '2224602462';
