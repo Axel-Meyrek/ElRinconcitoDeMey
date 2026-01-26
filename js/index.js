@@ -324,8 +324,6 @@ const generarMensajeWhatsApp = () => {
     mensaje += `- ${producto.nombre} (x${producto.cantidad})\n`;
   });
 
-  mensaje += `\nTotal a pagar: $${totalAPagar}\n\n`;
-
   if (!oficina && !salon) {
     mensaje += `La entrega sería hoy a las ${horaDeEntrega} en la puerta del edificio ${edificio}.`;
   } else if (oficina) {
