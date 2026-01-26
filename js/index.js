@@ -1,6 +1,8 @@
 /* VARIABLES Y COMPONENTES */
 const $buttonCafecitoDelDiaVolver = document.querySelector('#buttonCafecitoDelDiaVolver');
 
+const $lugarEntregaCliente = document.querySelector('#lugarEntregaCliente');
+
 let buttonsNavegacion = [];
 
 let secciones = [];
@@ -13,13 +15,13 @@ let productos = [];
 
 let productosSeleccionados = [];
 
-let productoEnElPedido = [];
+let totalAPagar = 0;
 
-const cliente = {
+let cliente = {
     nombre: '',
-    entrega: '',
+    edificio: '',
     oficina: '',
-    fechaDeEntrega: '',
+    salon: '',
     horaDeEntrega: '',
     totalAPagar: 0,
     puntosDeSabiduria: 0,
@@ -59,6 +61,8 @@ const mostrarLaUltimaPantalla = () => {
     });
 }
 
+
+/* CAFECITO */
 const consumirAPIFraseDelDia = async () => {
     const URL = 'https://www.positive-api.online/phrase/esp'
     try {
@@ -115,6 +119,8 @@ const recuperarPuntosDeSabiduriaDeLocalStorage = () => {
     renderizarPuntosDeSabiduria();
 }
 
+
+/* MENU */
 const recuperarProductos = async () => {
     const respuesta = await fetch('./data/productos.json');
     const data = await respuesta.json();
@@ -178,57 +184,137 @@ const crearID = () => {
     return Date.now();
 }
 
-const crearPedido = () => {
-    productoEnElPedido = [];
+const renderizarPedidos = () => {
+    const $containerPedido = document.querySelector('#containerPedido');
+    $containerPedido.innerHTML = '';
+
+    totalAPagar = 0;
+
     productosSeleccionados.forEach( producto => {
-        
         for(let i = 0; i < producto.cantidad; i++) {
-            const productoConID = { ...producto, idPedido: crearID() };
-            productoEnElPedido.push(productoConID);
+            const {id, nombre, precio, ingredientes, imagen} = producto;
+    
+            const tagsIngredientes = ingredientes.map(ing => `<p class="tags">${ing} ✔</p>`).join("");
+    
+            totalAPagar += producto.precio;
+    
+            const $productoEnElPedido = /* html */
+            `<article class="detallesPerdido_cardProducto">
+                    <img class="detallesPedido_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
+                        
+                    <p class="producto_nombre">${nombre}</p>
+                    <p class="producto_precio">$${precio}</p>
+                    <div class="detallePedido_containerTags">
+                        ${tagsIngredientes}
+                    </div>
+        
+        
+                    <p class="detallePedido_frase">“Aprobado por estómagos universitarios.”</p>
+                </article>`;
+    
+            $containerPedido.innerHTML += $productoEnElPedido;
+
+
         }
     });
-
-    renderizarPedidosParaEditar();
 }
 
-const renderizarPedidosParaEditar = () => {
-  const $containerPedidosParaEditar = document.querySelector('#containerPedidosParaEditar');
-  $containerPedidosParaEditar.innerHTML = '';
+const eliminarPedido = (idProducto) => {
+    const indexProducto = productosSeleccionados.findIndex( producto => producto.id === idProducto );
+    console.log(indexProducto);
 
-  productoEnElPedido.forEach(producto => {
-    const { nombre, precio, ingredientes, extras } = producto;
+    productosSeleccionados[indexProducto].cantidad--;
 
-    const tagsIngredientes = ingredientes.map(ingrediente =>
-        `<p class="tagsClikeables tagsClikeableActive">${ingrediente} ✔</p>`
-      ).join("");
+    if(productosSeleccionados[indexProducto].cantidad === 0) {
+        productosSeleccionados.splice(indexProducto, 1);
+    }
 
-    const tagsExtras = extras.map(extra =>
-        `<p class="tagsClikeables">${extra} ✔</p>`
-      ).join("");
-
-    const $producto = /* html */ `
-      <article class="detallesPerdido_cardProducto">
-        <img class="detallesPedido_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
-        <p class="producto_nombre">${nombre}</p>
-        <p>Personaliza tu pedido</p>
-        <p class="producto_precio">$${precio}</p>
-        <div class="detallePedido_containerTags">
-          ${tagsIngredientes}
-          ${tagsExtras}
-        </div>
-      </article>
-    `;
-
-    $containerPedidosParaEditar.innerHTML += $producto;
-  });
+    renderizarPedidos();
 }
 
+
+/* DATOS USUARIO */
 const recuperarDatosDelUsuario = () => {
-    cliente.nombre = document.querySelector('#nombreCliente').value;
-    cliente.entrega = document.querySelector('#lugarEntregaCliente').value;
-    cliente.oficina = document.querySelector('#numeroOficinaCliente').value;
-    cliente.horaDeEntrega = document.querySelector('#horaEntregaCliente').value;
+
+    cliente.nombre = document.querySelector('#nombreCliente').value || '';
+    cliente.entrega = document.querySelector('#lugarEntregaCliente').value || '';
+    cliente.oficina = document.querySelector('#numeroOficinaCliente').value || '';
+    cliente.horaDeEntrega = document.querySelector('#horaEntregaCliente').value || '';
+    cliente.edificio = document.querySelector('#edificioCliente').value || document.querySelector('#edificioSalonCliente').value || '';
+    cliente.salon = document.querySelector('#numeroSalonCliente').value || '';
+
+    renderizarResumenDelPedido();
 }
+
+const resetFormularioDatosDelUsuario = () => {
+    document.querySelector('#nombreCliente').value = '';
+    document.querySelector('#lugarEntregaCliente').value = '';
+    document.querySelector('#numeroOficinaCliente').value = '';
+    document.querySelector('#horaEntregaCliente').value = '';
+    document.querySelector('#edificioCliente').value = '';
+    document.querySelector('#numeroSalonCliente').value = '';
+    document.querySelector('#edificioSalonCliente').value = '';
+}
+
+const mostrarPreguntasOcultas = () => {
+    resetPreguntasOcultas();
+
+    const $containerQuestionOficina = document.querySelector('#containerQuestionOficina');
+    if($lugarEntregaCliente.value === 'Oficina') {
+        $containerQuestionOficina.classList.remove('preguntasOcultas');
+    } else {
+        $containerQuestionOficina.classList.add('preguntasOcultas');
+    }
+
+    const $containerQuestionSalon = document.querySelector('#containerQuestionSalon');
+    if($lugarEntregaCliente.value === 'Salon') {
+        $containerQuestionSalon.classList.remove('preguntasOcultas');
+    } else {
+        $containerQuestionSalon.classList.add('preguntasOcultas');
+    }
+}
+
+const resetPreguntasOcultas = () => {
+    cliente.oficina = '';
+    cliente.salon = '';
+
+    document.querySelector('#numeroOficinaCliente').value = '';
+    document.querySelector('#edificioCliente').value = '';
+
+    document.querySelector('#numeroSalonCliente').value = '';
+    document.querySelector('#edificioSalonCliente').value = '';
+}
+
+/* RESUMEN PEDIDO */
+
+const renderizarDatosDelUsarioEnResumen = () => {
+    const {nombre, edificio, oficina, salon, horaDeEntrega} = cliente;
+    const $resumenInfoUsuario = document.querySelector('#resumenInfoUsuario');
+
+    if(salon == '' && oficina == '') $resumenInfoUsuario.textContent = `¡Hola, ${nombre}! Su pedido será entregado hoy a las ${horaDeEntrega} en la puerta de el edificio ${edificio}. El total de su pedido es de ${totalAPagar} MXN.¡Gracias por su preferencia!`;
+
+    if(oficina) $resumenInfoUsuario.textContent = `¡Hola, ${nombre}! Su pedido será entregado hoy a las ${horaDeEntrega} en su oficina que es la ${oficina} en el edificio ${edificio}. El total de su pedido es de ${totalAPagar} MXN.¡Gracias por su preferencia!`;
+
+    if(salon) $resumenInfoUsuario.textContent = `¡Hola, ${nombre}! Su pedido será entregado hoy a las ${horaDeEntrega} en su el salón ${salon} que esta en el edificio ${edificio}. El total de su pedido es de ${totalAPagar} MXN.¡Gracias por su preferencia!`;
+
+}
+
+const renderizarTotalAPagar = () => {
+    const $totalAPagar = document.querySelector('#totalAPagar');
+    $totalAPagar.textContent = `$${totalAPagar}`;
+}
+
+const renderizarResumenDelPedido = () => {
+
+    renderizarDatosDelUsarioEnResumen();
+    
+    renderizarPedidos();
+
+    renderizarTotalAPagar();
+}
+
+
+
 
 /* EVENTOS */
 document.addEventListener('DOMContentLoaded', async ()  => {
@@ -247,3 +333,5 @@ document.addEventListener('DOMContentLoaded', async ()  => {
 });
 
 $buttonCafecitoDelDiaVolver.addEventListener('click', mostrarLaUltimaPantalla);
+
+$lugarEntregaCliente.addEventListener('change', mostrarPreguntasOcultas);
