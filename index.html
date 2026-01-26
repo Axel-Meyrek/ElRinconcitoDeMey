@@ -121,7 +121,7 @@
         <p class="detallePedido_totalCompra">Total: <span id="totalAPagar">$45</span> nuevos pesos mexicanos</p>
         <hr class="detallePedido_lineDecorativo">
         <hr class="detallePedido_lineDecorativo">
-        <button class="buttonCallToAction" data-modal="sectionMensajeGenerado">Terminar Pedido</button>
+        <button class="buttonCallToAction" data-modal="sectionMensajeGenerado" onclick="enviarPedidoPorWhatsApp()">Terminar Pedido</button>
         <p class="detallesPedido_pieDePagina">Al dar clic, se abrirá WhatsApp con tu pedido ya listo. Solo envía el mensaje y yo te confirmaré la recepción.</p>
         
     </section>
@@ -133,7 +133,7 @@
         <p class="mensajeGenerado_description">Se debio abrir tu app de WhatsApp con tu pedido ya listo. Solo envía el mensaje y yo te confirmaré la recepción.</p>
         <img class="mensajeGenerado_img" src="./img/Salad_PrimerDiaDeClases.svg" alt="">
         <button class="buttonCallToAction" data-modal="sectionMain">Terminar</button>
-        <button class="buttonCallToAction buttonVolver">Volver a generar mensaje</button>
+        <button class="buttonCallToAction buttonVolver" onclick="enviarPedidoPorWhatsApp()">Volver a generar mensaje</button>
     </section>
 
 

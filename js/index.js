@@ -313,6 +313,49 @@ const renderizarResumenDelPedido = () => {
     renderizarTotalAPagar();
 }
 
+const generarMensajeWhatsApp = () => {
+  const { nombre, edificio, oficina, salon, horaDeEntrega } = cliente;
+
+  let mensaje = `Holaaaa Mey!!! 😄\n\n`;
+  mensaje += `Soy ${nombre} y me gustaría hacer un pedido, por favor.\n\n`;
+  mensaje += `Detalle del pedido:\n`;
+
+  productosSeleccionados.forEach(producto => {
+    mensaje += `- ${producto.nombre} (x${producto.cantidad})\n`;
+  });
+
+  mensaje += `\nTotal a pagar: $${totalAPagar}\n\n`;
+
+  if (!oficina && !salon) {
+    mensaje += `La entrega sería hoy a las ${horaDeEntrega} en la puerta del edificio ${edificio}.`;
+  } else if (oficina) {
+    mensaje += `La entrega sería hoy a las ${horaDeEntrega} en mi oficina ${oficina}, edificio ${edificio}.`;
+  } else if (salon) {
+    mensaje += `La entrega sería hoy a las ${horaDeEntrega} en el salón ${salon}, edificio ${edificio}.`;
+  }
+
+  mensaje += `\n\n¡Muchas gracias! 🙌`;
+
+  // 🔧 Truco para que WhatsApp sí respete emojis
+  const mensajeCodificado = encodeURIComponent(
+    mensaje.normalize("NFC")
+  );
+
+  return mensajeCodificado;
+};
+
+
+
+const enviarPedidoPorWhatsApp = () => {
+    const numeroTelefono = '2224602462';
+    const mensaje = generarMensajeWhatsApp();
+
+    const urlWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensaje}`;
+
+    window.open(urlWhatsApp, '_blank');
+}
+
+
 
 
 
